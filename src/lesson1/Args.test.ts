@@ -30,7 +30,7 @@ test("", () => {
 
 test("should_example_1", () => {
   const args = Args.parse(["-l", "-p", "8080", "-d", "/usr/logs"]);
-  expect(args.logging()).toEqual(true);
+  expect(args.logging()).toBe(true);
   expect(args.port()).toBe("8080");
   expect(args.directory()).toBe("/usr/logs");
 });
@@ -49,6 +49,6 @@ test("should_example_2", () => {
     "5",
   ]);
 
-  expect(Array.from(["this", "is", "a", "list"])).toBe(args.group());
-  expect(Array.from(["1", "2", "-3", "5"])).toBe(args.decimals());
+  expect(Array.from(["this", "is", "a", "list"])).toEqual(args.group());
+  expect(Array.from(["1", "2", "-3", "5"])).toEqual(args.decimals());
 });
