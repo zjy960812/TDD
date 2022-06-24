@@ -15,6 +15,12 @@
 import Args from "./Args";
 // 构思如何被用户使用
 // -l -p 8080 -d /usr/logs
+/**
+ *  -l boolean
+ *  -p 8080
+ *  -d /usr/logs
+ *  -multi:
+ */
 
 test("", () => {
   const args = Args.parse(["-l", "-p", "8080", "-d", "/usr/logs"]);
