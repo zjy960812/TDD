@@ -21,3 +21,28 @@ test("", () => {
   args.logging();
   args.port();
 });
+
+test("should_example_1", () => {
+  const args = Args.parse(["-l", "-p", "8080", "-d", "/usr/logs"]);
+  expect(args.logging()).toEqual(true);
+  expect(args.port()).toBe("8080");
+  expect(args.directory()).toBe("/usr/logs");
+});
+
+test("should_example_2", () => {
+  const args = Args.parse([
+    "-g",
+    "this",
+    "is",
+    "a",
+    "list",
+    "-d",
+    "1",
+    "2",
+    "-3",
+    "5",
+  ]);
+
+  expect(Array.from(["this", "is", "a", "list"])).toBe(args.group());
+  expect(Array.from(["1", "2", "-3", "5"])).toBe(args.decimals());
+});
